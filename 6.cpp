@@ -190,7 +190,7 @@ int findSumOfOddValues(const int arr[], int n) {
 } 
 
 void replaceSecondWithMaxNegative(int arr[], int n) { 
-    if (n < 2) { 
+    if (n < 1) { 
         cout << "Массив слишком мал для замены второго элемента." << endl; 
         return; 
     } 
