@@ -58,7 +58,7 @@ void checkRange(const int min, const int max);
  * @param n Размер массива. 
  * @return Сумма элементов массива с нечетными значениями. 
  */ 
-int findSumOfOddValues(const int arr[], int n); 
+int findSumOfOddValues(const int arr[], const int n); 
 
 /** 
  * @brief заменяет второй элемент массива на максимальный среди отрицательных. 
@@ -66,7 +66,7 @@ int findSumOfOddValues(const int arr[], int n);
  * @param arr Массив целых чисел. 
  * @param n Размер массива. 
  */ 
-void replaceSecondWithMaxNegative(int arr[], int n); 
+void replaceSecondWithMaxNegative(int arr[], const int n);
 
 /** 
  * @brief  выводит индексы элементов массива, значения которых больше заданного числа A. 
@@ -123,7 +123,7 @@ int main()
 
     int a; 
     cout << "Введите значение a: "; 
-    a = getNumber(); 
+    int a = getNumber(); 
     printIndexesGreaterThana(arr, n, a); 
 
     replaceSecondWithMaxNegative(arr, n); 
@@ -160,14 +160,14 @@ intgetNumber() {
 } 
 
 void printArray(const int* arr, const int n) { 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         cout << "arr[" << i << "] = " << arr[i] << endl; 
     } 
 } 
 
 void fillArrayRandom(int* arr, const int n, const int min, const int max) { 
     srand(static_cast<unsigned int>(time(0))); // Инициализация генератора случайных чисел 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         arr[i] = rand() % (max - min + 1) + min; 
     } 
 } 
@@ -181,7 +181,7 @@ void checkRange(const int min, const int max) {
 
 int findSumOfOddValues(const int arr[], int n) { 
     int sum = 0; 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         if (arr[i] % 2 != 0) { 
             sum += arr[i]; 
         } 
@@ -197,7 +197,7 @@ void replaceSecondWithMaxNegative(int arr[], int n) {
     int maxNegative = INT_MIN; 
     bool foundNegative = false; 
 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         if (arr[i] < 0 && arr[i] > maxNegative) { 
             maxNegative = arr[i]; 
             foundNegative = true; 
@@ -211,7 +211,7 @@ void replaceSecondWithMaxNegative(int arr[], int n) {
 
 void printIndexesGreaterThana(const int arr[], const int n, const int a) { 
     cout << "Индексы элементов, больше " << a << ":" << endl; 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         if (arr[i] > a) { 
             cout << i << " "; 
         } 
@@ -220,7 +220,7 @@ void printIndexesGreaterThana(const int arr[], const int n, const int a) {
 } 
 
 void fillArray(int* arr, const int n, const int min, const int max) { 
-    for (int i = 0; i < n; i++) { 
+    for (size_t i = 0; i < n; i++) { 
         cout << "Введите значение для arr[" << i << "]: "; 
         arr[i] = getNumber(); 
         if (arr[i] < min || arr[i] > max) { 
