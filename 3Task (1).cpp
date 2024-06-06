@@ -1,76 +1,98 @@
- * @return true, если число является натуральным (больше нуля), в противном случае - false.
- */
-bool isNatural(const int num);
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+/**
+*@breef Считывает значение с клавиатуры с проверкой ввода
+* @return Введённое значение
+*/
+double getValue();
 
 /**
- * @brief Проверяет, является ли число целым.
- * @param num Число типа float для проверки.
- * @return true, если число является целым, в противном случае - false.
- */
-bool isInteger(const float num);
+*@breef Проверяет число на то, чтобы оно не было равно нулю или меньше нуля
+* @return Введённое значение
+*/
+void checkValue(int const value);
 
 /**
- * @brief Вычисляет среднее арифметическое двух целых чисел.
- * @param num1 Первое целое число для вычисления среднего.
- * @param num2 Второе целое число для вычисления среднего.
- * @return Среднее арифметическое чисел num1 и num2 в виде числа типа float.
- */
-float calculateAverage(const int num1,const int num2);
+*@breef Производит расчёт суммы ряда функции от 1 до n
+* @param n - Число ряда, до которого будет посчитана сумма ряда
+* @return Сумма ряда функций
+*/
+double getSum(const int n);
 
 /**
- * @brief Основная функция программы.
- * @return Возвращает целое число, указывающее на успешное завершение программы (0).
- */
+*@breef Подсчёт рекурентной функции
+* @param current - прошлое значение функции
+* @param i - порядковый номер ряда
+* @return Полученное значение функции
+*/
+double getNext(const double current, const int i);
+
+/**
+*@breef Производит расчёт суммы ряда функции от 1 до n
+* @param e - Число, до которого будет подсчитываться сумма ряда
+* @return Сумма ряда функций до определённого числа
+*/
+double getSumE(double const e);
+
+/**
+*@breef - главная функция программы
+* @return -возвращает 0, если функция выполнена верно, иначе 1.
+*/
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    int num1, num2;
-
-    cout << "Введите первое натуральное число: ";
-    cin >> num1;
-
-    if (!isNatural(num1))
-    {
-        cout << "Ошибка: Введите натуральное число." << endl;
-        return 1;
-    }
-
-    cout << "Введите второе натуральное число: ";
-    cin >> num2;
-
-    if (!isNatural(num2))
-    {
-        cout << "Ошибка: Введите натуральное число." << endl;
-        return 1;
-    }
-
-    float average = calculateAverage(num1, num2);
-
-    if (isInteger(average))
-    {
-        cout << "Среднее арифметическое чисел " << num1 << " и " << num2 << " является целым числом." << endl;
-    }
-    else
-    {
-        cout << "Среднее арифметическое чисел " << num1 << " и " << num2 << " не является целым числом." << endl;
-    }
-
-    return 0;
+	cout << "Enter the number of elements = ";
+	int a = getValue();
+	checkValue(a);
+	cout << "Enter the element from which the sequence will begin = ";
+	double b = getValue();
+	checkValue(b);
+	cout << "The sum of the first elements = " << getSum(a) << endl;
+	cout << "Sum of elements after tracked number = " << getSumE(b) << endl;
+	return 0;
 }
-
-bool isNatural(const int num)
+double getValue()
 {
-    return num > 0;
+	double n;
+	if (!(cin >> n))
+	{
+		cout << "error" << endl;
+		abort();
+	}
+	return n;
 }
-
-bool isInteger(const float num)
+void checkValue(int const value)
 {
-    int intPart = static_cast<int>(num);
-    return num == intPart;
+	if (value < 0)
+	{
+		cout << "error" << endl;
+		abort();
+	}
 }
-
-
-float calculateAverage(const int num1, const  int num2)
+double getSum(const int n)
 {
-    return (num1 + num2) / 2.0;
+	double current = 1;
+	double result = current;
+	for (int i = 0; i < n; i++)
+	{
+		current = getNext(current, i);
+		result += current;
+	}
+	return result;
+}
+double getNext(const double current, const int i)
+{
+	return ((-1.0) / ((i + 3) * (i + 4))) * current;
+}
+double getSumE(double const e)
+{
+	double result = 0;
+	double current = 1;
+	for (int i = 0; (abs(current) > e - numeric_limits<double>::epsilon()); i++)
+	{
+		result += current;
+		current = getNext(current, i);
+	}
+	return result;
 }
