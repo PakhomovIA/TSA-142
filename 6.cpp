@@ -58,7 +58,7 @@ void checkRange(const int min, const int max);
  * @param n Размер массива. 
  * @return Сумма элементов массива с нечетными значениями. 
  */ 
-int findSumOfOddValues(const int arr[], const int n); 
+int findSumOfOddValues(const int arr[], const int n);
 
 /** 
  * @brief заменяет второй элемент массива на максимальный среди отрицательных. 
@@ -121,7 +121,7 @@ int main()
 
     cout << "Сумма нечётных элементов: " << findSumOfOddValues(arr, n) << endl; 
 
-    int a; 
+    
     cout << "Введите значение a: "; 
     int a = getNumber(); 
     printIndexesGreaterThana(arr, n, a); 
