@@ -36,21 +36,14 @@ int main()
     cout << "Введите первое натуральное число: ";
     cin >> num1;
 
-    if (!isNatural(num1))
-    {
-        cout << "Ошибка: Введите натуральное число." << endl;
-        return 1;
-    }
+    bool isNatural(int num1);
+    
 
     cout << "Введите второе натуральное число: ";
     cin >> num2;
 
-    if (!isNatural(num2))
-    {
-        cout << "Ошибка: Введите натуральное число." << endl;
-        return 1;
-    }
-
+    bool isNatural(int num2);
+    
     float average = calculateAverage(num1, num2);
 
     if (isInteger(average))
