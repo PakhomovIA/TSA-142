@@ -57,7 +57,7 @@ void printTabFunction(const double minValue, const double maxValue, const double
     } 
 
     cout << setw(10) << "x" << setw(15) << "y" << endl; 
-    for (double i = minValue; i <= maxValue; i += step) 
+    for (double i = minValue; i < maxValue + step) 
     { 
         if (i > maxValue) { 
             cout << "Значение x выходит за пределы максимального значения." << endl; 
