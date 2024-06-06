@@ -1,8 +1,28 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+/
+*@brief Рассчитывает значение А
+* @param x - константа
+* @param y - константа
+* @param z - константа
+* @return-значение функции А
+*/
 double getA(const double x, const double y, const double z);
+
+/
+*@brief Рассчитывает значение B
+* @param x - константа
+* @param y - константа
+* @param z - константа
+* @return-значение функции B
+*/
 double getB(const double x, const double y, const double z);
+
+/**
+* @brief Точка входа в функцию
+ * @return- 0 иначе 1
+*/
 int main() {
   const double x=0.78;
   const double y=1.24;
