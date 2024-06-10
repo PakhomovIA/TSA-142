@@ -36,7 +36,7 @@ int main()
     cout << "Введите второе натуральное число: ";
     cin >> num2;
 
-    bool isNatural(int num2);
+    bool isNatural(const int num2);
 
     float average = calculateAverage(num1, num2);
 
@@ -50,16 +50,16 @@ int main()
     }
     return 0;
 }
-bool isNatural(int num)
+bool isNatural(const int num)
 {
     return num > 0;
 }
-bool isInteger(float num)
+bool isInteger(const float num)
 {
     int intPart = static_cast<int>(num);
     return num == intPart;
 }
-float calculateAverage(int num1, int num2)
+float calculateAverage( const int num1, const int num2)
 {
     return (num1 + num2) / 2.0;
 }
