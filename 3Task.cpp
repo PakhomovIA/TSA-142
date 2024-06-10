@@ -18,7 +18,7 @@ bool isInteger(const float num);
  * @param num2 Второе целое число для вычисления среднего.
  * @return Среднее арифметическое чисел num1 и num2 в виде числа типа float.
  */
-float calculateAverage(int num1, int num2);
+float calculateAverage(const int num1, int num2);
 /**
  * @brief Основная функция программы.
  * @return Возвращает целое число, указывающее на успешное завершение программы (0).
