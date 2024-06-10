@@ -5,13 +5,13 @@ using namespace std;
  * @param num Целое число для проверки.
  * @return true, если число является натуральным (больше нуля), в противном случае - false.
  */
-bool isNatural(int num);
+bool isNatural(const int num);
 /**
  * @brief Проверяет, является ли число целым.
  * @param num Число типа float для проверки.
  * @return true, если число является целым, в противном случае - false.
  */
-bool isInteger(float num);
+bool isInteger(const float num);
 /**
  * @brief Вычисляет среднее арифметическое двух целых чисел.
  * @param num1 Первое целое число для вычисления среднего.
@@ -30,7 +30,7 @@ int main()
     cout << "Введите первое натуральное число: ";
     cin >> num1;
 
-    bool isNatural(int num1);
+    bool isNatural(const int num1);
 
 
     cout << "Введите второе натуральное число: ";
