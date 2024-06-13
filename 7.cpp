@@ -67,20 +67,17 @@ int main() {
     copyVector(arr2, array);
     cout<< "Исходный массив:\n";
     printArray(array);
-    replaceMaxAbsElement(arr1);
-    cout<<"\nМассив после замены минимальных элементов:\n";
-    printArray(arr1);
 
-    insertFirstRowAfterEvenRows(arr2);
-    cout<<"\nМассив после удаления столбцов\n";
+  
+    insertFirstRowAfterEvenRows(arr1);
+    cout<<"\nМассив после вставки\n";
+  printArray(arr1);
+      replaceMaxAbsElement(arr2);
+    cout<<"\nМассив после замены\n";
+  printArray(arr2);
 
-    // Вывод исходного массива
-    cout << "Исходный массив:" << endl;
-    printArray(array);
 
-    
 
-    
 
     return 0;
 }
