@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <math.h>
 #include <iomanip>
@@ -6,41 +7,41 @@ using namespace std;
 
 /*
 @brief Проверяет положительные ли значения 
- * @param n-число
- * @return- значение n
+ * @paramn-число
+* @return- значение n
 */
 void checkN(const double n);
 /*
 @brief ввод значений с проверкой
  * @return- числа
 */
-double getNumber();
+doublegetNumber();
 /*
 @brief табулирует заданную в таблице функцию
- * @param minValue-минимальное значение функции
- * @param maxValue-максимальное значение функции
- * @param step-шаг
+ * @paramminValue-минимальное значение функции
+ * @parammaxValue-максимальное значение функции
+ * @paramstep-шаг
  * @return- выводит таблицу
 */
 void printTabFunction(const double minValue,const double maxValue,const double step);
 /*
 @brief проверяет что минимум меньше максимума
- * @param min-минимальное значение функции
- * @param max-максимальное значение функции
- * @return- значения
+ * @parammin-минимальное значение функции
+ * @parammax-максимальное значение функции
+* @return- значения
 */
 void checkRange(const double min, const double max);
 /**
 * @breef - главная функция программы
 * @return - возвращает 0, если функция выполнена верно, иначе 1.
 */
-int main()
+intmain()
 {
-cout << "Введите минимальный предел" ;
+cout<< "Введите минимальный предел" ;
 double minValue = getNumber();
 checkN(minValue);
-cout << "Введите максимальный предел" ;
-double maxValue = getNumber();
+cout<< "Введите максимальный предел" ;
+doublemaxValue = getNumber();
 checkN(maxValue);
 checkRange(minValue,maxValue);
 cout << "Введите шаг" ;
