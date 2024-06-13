@@ -56,8 +56,10 @@ void printTabFunction(const double minValue,const double maxValue,const double s
     cout << setw(10) << "x" << setw(15) << "y" << endl;
     for (double i = minValue; i < maxValue + step; i = i + step)
     {
+        if(!(i<0)){
         double a = 3 * sin (sqrt (i)) + 0.39 * i - 3.8;
         cout << setw(10) << i << setw(15) << a << endl;
+        }
     }
 }
    double getNumber()
