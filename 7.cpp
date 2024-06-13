@@ -35,7 +35,7 @@ void replaceMaxAbsElement(vector<vector<int>>& array);
 */
 
 void insertFirstRowAfterEvenRows(vector<vector<int>>& array);
-
+void copyVector(vector<vector<int>>&lmn, const vector<vector<int>>&rmn);
 int main() {
     int n, m;
     char choice;
@@ -50,38 +50,37 @@ int main() {
 
     cout << "Заполнить массив случайными числами (r) или с клавиатуры (k)? ";
     cin >> choice;
-
-    if (choice == 'r' || choice == 'R') {
-        fillArrayWithRandomNumbers(array);
-    } else if (choice == 'k' || choice == 'K') {
-        fillArrayFromKeyboard(array);
-    } else {
-        cout << "Некорректный выбор. Завершение программы." << endl;
-        return 1;
+    switch (choice) {
+        case 'r': // Заполнение случайными числами
+              fillArrayWithRandomNumbers(array);
+            break;
+        case 'k': // Заполнение с клавиатуры
+              fillArrayFromKeyboard(array);
+            break;
+        default:
+            cout << "Некорректный выбор. " << endl;
+            return -1;
     }
+   vector<vector<int>>arr1;
+    vector<vector<int>>arr2;
+    copyVector(arr1, array);
+    copyVector(arr2, array);
+    cout<< "Исходный массив:\n";
+    printArray(array);
+    replaceMaxAbsElement(arr1);
+    cout<<"\nМассив после замены минимальных элементов:\n";
+    printArray(arr1);
+
+    insertFirstRowAfterEvenRows(arr2);
+    cout<<"\nМассив после удаления столбцов\n";
 
     // Вывод исходного массива
     cout << "Исходный массив:" << endl;
     printArray(array);
 
-    // Предложить пользователю дополнительные действия
-    cout << "Выберите действие:\n";
-    cout << "1 - Заменить каждый наибольший по модулю элемент строки на противоположный по знаку\n";
-    cout << "2 - Вставить после каждой четной строки первую строку\n";
-    cout << "Введите номер действия (или любой другой символ для выхода): ";
-    cin >> choice;
+    
 
-    if (choice == '1') {
-        replaceMaxAbsElement(array);
-        cout << "Массив после замены наибольших по модулю элементов на противоположные по знаку:" << endl;
-        printArray(array);
-    } else if (choice == '2') {
-        insertFirstRowAfterEvenRows(array);
-        cout << "Массив после вставки первой строки после каждой четной строки:" << endl;
-        printArray(array);
-    } else {
-        cout << "Некорректный выбор. Завершение программы." << endl;
-    }
+    
 
     return 0;
 }
@@ -131,4 +130,17 @@ void insertFirstRowAfterEvenRows(vector<vector<int>>& array) {
     for (int i = 1; i < array.size(); i += 3) {
         array.insert(array.begin() + i + 1, firstRow);
     }
+}
+void copyVector(vector<vector<int>>&lmn, const vector<vector<int>>&rmn){
+    if (&lmn!=&rmn){
+lmn.resize(rmn.size());
+for (size_t i=0;i<rmn.size();++i){
+lmn[i].resize(rmn[i].size());
+}
+for (size_t i=0;i<rmn.size();++i){
+for (size_t j=0; j<rmn[i].size();++j){
+lmn[i][j]=rmn[i][j];
+}
+}
+}
 }
